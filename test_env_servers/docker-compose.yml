@@ -3,6 +3,8 @@ services:
   redis:
     image: redis
     restart: always
+    ports:
+      - "6379:6379"
     networks:
       net:
         ipv4_address: 172.21.0.2
@@ -18,6 +20,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=yunjimysql@2019
     restart: always
+    ports:
+      - "3306:3306"
     networks:
       net:
         ipv4_address: 172.21.0.3
@@ -44,6 +48,9 @@ services:
       net:
         ipv4_address: 172.21.0.5
     restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"  #管理页面
 
 
 networks:
