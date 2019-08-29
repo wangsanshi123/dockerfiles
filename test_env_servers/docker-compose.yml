@@ -1,0 +1,56 @@
+version: "3.7"
+services:
+  redis:
+    image: redis
+    restart: always
+    networks:
+      net:
+        ipv4_address: 172.21.0.2
+    command: redis-server --appendonly yes
+    volumes:
+      - "/data/docker-redis:/data"
+      - "/etc/docker-redis/redis.conf:/usr/local/etc/redis/redis.conf"
+
+
+
+  mysql:
+    image: yuantaixing/mysql5_custom:1.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=yunjimysql@2019
+    restart: always
+    networks:
+      net:
+        ipv4_address: 172.21.0.3
+    volumes:
+      - "/etc/docker-mysql/my.cnf.d:/etc/mysql/conf.d"
+      - "/data/docker-mysql:/var/lib/mysql"
+  splash:
+    image: scrapinghub/splash
+    restart: always
+    networks:
+      net:
+        ipv4_address: 172.21.0.4
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: my-rabbit-1
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: 4833123yuan
+    volumes:
+      - "/data/docker-rabbitmq:/var/lib/rabbitmq"
+      - "/etc/docker-rabbitmq/rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+    networks:
+      net:
+        ipv4_address: 172.21.0.5
+    restart: always
+
+
+networks:
+  net:
+    name: test-env
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+
+

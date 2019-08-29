@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  centos-ssh-1:
+    image: centos-ssh-custom-4
+#    depends_on:
+#      - yjsmf_redis-1
+#      - yjsmf_mysql-1
+#    ports:
+#      - "2200:22"
+#      - "15264:15264"
+#      - "8080-8085:8080-8085"
+#    networks:
+#      - my_net
+
+  yjsmf_redis-1:
+    image: redis
+#    args:
+#      - appendonly:yes
+#    networks:
+#      - bridge
+
+  yjsmf_mysql-1:
+    image: mysql:5.7.25
+    environment:
+      - MYSQL_ROOT_PASSWORD=4833123yuan
+#    networks:
+#      - my_net

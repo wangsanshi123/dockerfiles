@@ -2,3 +2,8 @@
 
 eg:
 docker build -t kali_top_10 .
+docker build -t my_mongo1 .
+
+
+docker run -d --name my_mongo1 -p 27018:27017  my_mongo1
+docker run -d --name my_mongo1 -p 27018:27017  my_mongo1 --config  /etc/mongo/mongod.conf
