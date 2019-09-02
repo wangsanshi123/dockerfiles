@@ -4,7 +4,7 @@ services:
     image: yuantaixing/gitlab-ce:1.2
     ports:
       - "443:443"
-      - "2200:22"
+      - "8080:22"  #暴露的端口
       - "80:80"
     restart: always
     container_name: "gitlab"
