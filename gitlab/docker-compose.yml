@@ -14,5 +14,11 @@ services:
       - "/var/opt/gitlab:/var/opt/gitlab"  #数据
 
 
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
 
 
