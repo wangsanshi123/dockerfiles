@@ -28,7 +28,6 @@ try:
     os.system('ssh-keygen -t rsa -C \"acid_creative\"')
     print(colored("\t Keys Generated Successfully", "blue"))
     os.system("(echo '\r\n\'; cat $HOME/.ssh/id_rsa.pub; echo  \'\r\n\') > $HOME/.ssh/public_key.txt")
-    # cmd = "{} -h " + ip_address + ' flushall'
     cmd = "{} -h ".format(REDIS_CLI) + ip_address + " -p " + port + ' flushall'
     cmd1 = "{} -h ".format(REDIS_CLI) + ip_address + " -p " + port
     os.system(cmd)
@@ -36,7 +35,10 @@ try:
         REDIS_CLI) + ip_address + " -p " + port + ' -x set cracklist'
     os.system(cmd2)
     cmd3 = cmd1 + ' config set dbfilename "backup.db" '
-    cmd4 = cmd1 + ' config set  dir' + " /home/" + username + "/.ssh/"
+    if username == "root":
+        cmd4 = cmd1 + ' config set  dir' + " /root" + "/.ssh/"
+    else:
+        cmd4 = cmd1 + ' config set  dir' + " /home/" + username + "/.ssh/"
     cmd5 = cmd1 + ' config set dbfilename "authorized_keys" '
     cmd6 = cmd1 + ' save'
     os.system(cmd3)
