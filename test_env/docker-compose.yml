@@ -8,7 +8,8 @@ services:
     networks:
       net:
         ipv4_address: 172.18.0.2
-
+    volumes:
+      - "/root/dockerfiles:/root/dockerfiles"
 networks:
   net:
     name: yjsmf
