@@ -13,12 +13,9 @@ services:
       - "/var/log/gitlab:/var/log/gitlab"  # 日志
       - "/var/opt/gitlab:/var/opt/gitlab"  #数据
 
+    networks:
+      net:
+        ipv4_address: 172.21.0.2
 
-networks:
-  net:
-    name: yjsmf
-    ipam:
-      config:
-        - subnet: 172.18.0.0/16
 
 

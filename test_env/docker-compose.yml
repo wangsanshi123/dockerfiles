@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  test_env:
+    image: yuantaixing/test_env:1.1
+    ports:
+      - "6379:6379"
+      - "3306:3306"
+    networks:
+      net:
+        ipv4_address: 172.18.0.1
+
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
