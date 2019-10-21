@@ -7,7 +7,7 @@ services:
       - "3306:3306"
     networks:
       net:
-        ipv4_address: 172.18.0.1
+        ipv4_address: 172.18.0.2
 
 networks:
   net:
