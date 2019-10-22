@@ -2,12 +2,9 @@ version: "3.7"
 services:
   test_env:
     image: yuantaixing/nginx_uwsgi:1.6
-    ports:
-      - "6379:6379"
-      - "3306:3306"
     networks:
       net:
-        ipv4_address: 172.18.0.2
+        ipv4_address: 172.18.0.6
     volumes:
       - "/root/dockerfiles:/root/dockerfiles"
       - "/root/yjsmf:/root/yjsmf"
