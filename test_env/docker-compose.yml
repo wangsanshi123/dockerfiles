@@ -5,6 +5,8 @@ services:
     networks:
       net:
         ipv4_address: 172.18.0.6
+    ports:
+      - "2200:22"
     volumes:
       - "/root/dockerfiles:/root/dockerfiles"
       - "/root/yjsmf:/root/yjsmf"
