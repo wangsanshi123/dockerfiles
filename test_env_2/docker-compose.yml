@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  test_env:
+    image: yuantaixing/nginx_uwsgi:1.6
+    networks:
+      net:
+        ipv4_address: 172.18.0.7
+    ports:
+      - "2201:22"
+      - "8101-8110:8101-8110"
+    volumes:
+      - "/root/dockerfiles:/root/dockerfiles"
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
