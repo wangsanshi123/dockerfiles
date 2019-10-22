@@ -7,7 +7,7 @@ services:
         ipv4_address: 172.18.0.6
     ports:
       - "2200:22"
-      - "8080-8090:8080-8090"
+      - "8090-8100:8090-8100"
     volumes:
       - "/root/dockerfiles:/root/dockerfiles"
       - "/root/yjsmf:/root/yjsmf"
