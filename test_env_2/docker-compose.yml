@@ -4,7 +4,7 @@ services:
     image: yuantaixing/nginx_uwsgi:1.6
     networks:
       net:
-        ipv4_address: 172.18.0.7
+        ipv4_address: 172.18.0.8
     ports:
       - "2201:22"
       - "8101-8110:8101-8110"
