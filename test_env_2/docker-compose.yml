@@ -6,7 +6,7 @@ services:
       net:
         ipv4_address: 172.18.0.8
     ports:
-      - "2201:22"
+      - "80:22"
       - "8101-8110:8101-8110"
     volumes:
       - "/root/dockerfiles:/root/dockerfiles"
