@@ -1,0 +1,2 @@
+apt-get
+apt-get install -y net-tools openssh-server htop git vim wget gcc make  curl  bzip2 dnsutils lrzsz  privoxy nmap tcpdump iftop

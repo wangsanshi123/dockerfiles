@@ -2,20 +2,18 @@ version: "3.7"
 services:
   centos_ssh:
     image: yuantaixing/centos_ssh_redis_mongo_mysql:1.1
-    ports:
-      - "2203:22"
-      - "27018:27017"
-      - "3308:3306"
-    privileged: true
-    restart: always
     networks:
       net:
-        ipv4_address: 172.20.0.6
-
+        ipv4_address: 172.18.0.10
+    privileged: true
+    restart: always
     container_name: "centos_ssh_redis_mongo_mysql"
 
 networks:
   net:
-    name: yjsmf_vulscan
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
 
 

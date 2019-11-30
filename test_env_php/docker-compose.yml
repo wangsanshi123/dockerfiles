@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  test_env:
+    image: yuantaixing/centos-ssh-conda:1.6
+    networks:
+      net:
+        ipv4_address: 172.18.0.12
+    ports:
+      - "8180:80"
+    privileged: true
+    restart: always
+  tsrc:
+    image: xsrc/xsrc:v1.0.1
+    ports:
+      - "8280:80"
+    networks:
+      net:
+        ipv4_address: 172.18.0.13
+    privileged: true
+    restart: always
+
+  mysql:
+    image: yuantaixing/mysql5_custom:1.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootyunjisrc@123
+    restart: always
+    networks:
+      net:
+        ipv4_address: 172.18.0.13
+    volumes:
+      - "/etc/docker-mysql-php/my.cnf.d:/etc/mysql/conf.d"
+      - "/data/docker-mysql:/var/lib/mysql"
+
+
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16

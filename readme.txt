@@ -7,3 +7,7 @@ docker build -t my_mongo1 .
 
 docker run -d --name my_mongo1 -p 27018:27017  my_mongo1
 docker run -d --name my_mongo1 -p 27018:27017  my_mongo1 --config  /etc/mongo/mongod.conf
+
+
+
+docker run --name debian  -p 2204:22 -dit --privileged  debian /usr/sbin/init
