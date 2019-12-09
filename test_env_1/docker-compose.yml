@@ -13,6 +13,7 @@ services:
     volumes:
       - "/root/dockerfiles:/root/dockerfiles"
       - "/root/yjsmf:/root/yjsmf"
+      - "/etc/timezone:/etc/timezone"
 networks:
   net:
     name: yjsmf
