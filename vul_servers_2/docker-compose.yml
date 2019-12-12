@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  redis_1:
+    image: raesene/bwapp
+    networks:
+      net:
+        ipv4_address: 172.18.1.1
+
+
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
+
