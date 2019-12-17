@@ -17,7 +17,7 @@ services:
   mysql:
     image: yuantaixing/mysql5_custom:1.0
     environment:
-      - MYSQL_ROOT_PASSWORD=yunjimysql@2019
+      - MYSQL_ROOT_PASSWORD=4833123yuan
     restart: always
     ports:
       - "3306:3306"
