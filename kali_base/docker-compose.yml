@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  test_env:
+    image: yuantaixing/kali:1.0
+    networks:
+      net:
+        ipv4_address: 172.18.1.2
+    ports:
+      - "2211:22"
+    privileged: true
+    restart: always
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
