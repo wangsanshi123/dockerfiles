@@ -1,0 +1,15 @@
+version: "3.6"
+
+services:
+  code_12306:
+    image: yinaoxiong/12306_code_server:amd64 #根据需要修改image
+    ports:
+      - 5002:80 #可以根据需要修改端口
+    environment:
+      - WORKERS=1 #gunicorn works 默认为1可以根据服务器配置自行调整
+    restart: always
+  ticket:
+    image: yuantaixing/12306:1.0
+    container_name: 12306ticket
+    privileged: true
+
