@@ -2,10 +2,7 @@ FROM  debian:stretch
 MAINTAINER yuantaixing<1183195926@qq.com>
 
 #修改成国内的源，加速
-#apt-get update在用国外源时异常耗时，所以单独做一层
-RUN apt-get update
-RUN apt install -y apt-transport-https \
-    &&mv /etc/apt/sources.list /etc/apt/sources.list.bak
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 COPY sources.list etc/apt/sources.list
 
 # 安装常用的软件
