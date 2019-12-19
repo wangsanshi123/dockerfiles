@@ -1,4 +1,4 @@
-FROM  debian:stretch
+FROM  debian:buster
 MAINTAINER yuantaixing<1183195926@qq.com>
 
 #修改成国内的源，加速
