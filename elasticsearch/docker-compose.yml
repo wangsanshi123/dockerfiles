@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  test_env:
+    image: elasticsearch:7.5.1
+    networks:
+      net:
+        ipv4_address: 172.18.1.3
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: single-node
+
+
+
+networks:
+  net:
+    name: yjsmf
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
