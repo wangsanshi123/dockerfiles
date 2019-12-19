@@ -6,8 +6,8 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 COPY sources.list etc/apt/sources.list
 
 # 安装常用的软件
-RUN apt-get update \
-    && apt-get install -y locales net-tools openssh-server htop git vim wget gcc make  curl  bzip2 sudo \
+RUN apt-get update
+RUN apt-get install -y locales net-tools openssh-server htop git vim wget gcc make  curl  bzip2 sudo \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ENV LANG en_US.utf8
