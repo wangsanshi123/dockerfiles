@@ -2,6 +2,8 @@ FROM  debian:buster
 MAINTAINER yuantaixing<1183195926@qq.com>
 
 #修改成国内的源，加速
+RUN apt-get update -y &&apt-get install -y  ca-certificates
+
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 COPY sources.list etc/apt/sources.list
 
