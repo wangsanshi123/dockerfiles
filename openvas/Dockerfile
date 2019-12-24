@@ -1,7 +1,7 @@
 FROM debian:stretch
+
 ENV DEBIAN_FRONTEND=noninteractive \
     OV_PASSWORD=admin
-
 #修改源，加速
 RUN cp  /etc/apt/sources.list /etc/apt/sources.list.bak
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
@@ -88,17 +88,19 @@ RUN cd /usr/src && \
 	make install && \
 	rm /usr/src/v6.0.0.tar.gz && \
 	rm -rf /usr/src/openvas-6.0.0
-COPY  ./openvas-docker/config/openvassd.conf  /usr/local/etc/openvas/openvassd.conf
-COPY  ./openvas-docker/config/redis.conf /etc/redis.conf
-COPY ./openvas-docker /usr/src
+COPY ./openvas-docker/config/openvassd.conf /usr/local/etc/openvas/openvassd.conf
+COPY ./openvas-docker/config/redis.conf /etc/redis.conf
+
 #Build gsa
-ADD gsa/ /usr/src/
-RUN cd /usr/src/gsa && \
+RUN cd /usr/src && \
+	git clone -b gsa-8.0 https://github.com/greenbone/gsa.git && \
+	cd gsa && \
 	mkdir build && \
 	cd build && \
 	cmake .. && \
 	make && \
 	make install && \
+	rm -rf /usr/src/gsa
 
 #Build gvmd
 RUN cd /usr/src && \
