@@ -50,9 +50,7 @@ RUN apt-get install git zip bzip2 net-tools \
 	apt autoremove -y && \
 	rm -rf /var/lib/apt/lists/*
 
-# 加速git,需要按照git,且宿主机中1080端口为代理
-RUN git config --global https.proxy http://172.17.0.1:1080
-RUN git config --global https.proxy https://172.17.0.1:1080
+
 
 #Build gvm-libs
 RUN cd /usr/src && \
@@ -95,6 +93,10 @@ RUN cd /usr/src && \
 COPY openvassd.conf /usr/local/etc/openvas/openvassd.conf
 COPY redis.conf /etc/redis.conf
 
+
+# 加速git,需要按照git,且宿主机中1080端口为代理
+RUN git config --global https.proxy http://172.17.0.1:1080
+RUN git config --global https.proxy https://172.17.0.1:1080
 #Build gsa
 RUN cd /usr/src && \
 	git clone -b gsa-8.0 https://github.com/greenbone/gsa.git && \
