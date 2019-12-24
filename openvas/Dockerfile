@@ -16,9 +16,7 @@ echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main cont
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free' >> /etc/apt/sources.list
 RUN apt-get update
-# 加速git
-RUN git config --global https.proxy http://127.0.0.1:1080
-RUN git config --global https.proxy https://127.0.0.1:1080
+
 
 
 #Install Prerequisites
@@ -52,6 +50,9 @@ RUN apt-get install git zip bzip2 net-tools \
 	apt autoremove -y && \
 	rm -rf /var/lib/apt/lists/*
 
+# 加速git,需要按照git,且宿主机中1080端口为代理
+RUN git config --global https.proxy http://127.0.0.1:1080
+RUN git config --global https.proxy https://127.0.0.1:1080
 
 #Build gvm-libs
 RUN cd /usr/src && \
