@@ -97,8 +97,9 @@ COPY redis.conf /etc/redis.conf
 # 加速git,需要按照git,且宿主机中1080端口为代理
 #RUN git config --global https.proxy http://172.17.0.1:1080
 #RUN git config --global https.proxy https://172.17.0.1:1080
-RUN git config --global http.proxy 'socks5://localhost:1080'
-RUN git config --global https.proxy 'socks5://localhost:1080'
+#127.0.0.1
+RUN git config --global http.proxy 'socks5://172.17.0.1:1080'
+RUN git config --global https.proxy 'socks5://172.17.0.1:1080'
 
 
 #Build gsa
