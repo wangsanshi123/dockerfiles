@@ -11,7 +11,6 @@ RUN apt-get update
 RUN apt-get install -y ca-certificates apt-transport-https
 
 #修改成国内的源，二次加速
-#COPY sources.list etc/apt/sources.list
 RUN echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free' > /etc/apt/sources.list && \
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free' >> /etc/apt/sources.list && \
@@ -89,11 +88,11 @@ RUN cd /usr/src && \
 	make install && \
 	rm /usr/src/v6.0.0.tar.gz && \
 	rm -rf /usr/src/openvas-6.0.0
-COPY openvassd.conf /usr/local/etc/openvas/openvassd.conf
-COPY redis.conf /etc/redis.conf
-
+COPY  ./openvas-docker/config/openvassd.conf  /usr/local/etc/openvas/openvassd.conf
+COPY  ./openvas-docker/config/redis.conf /etc/redis.conf
+COPY ./openvas-docker /usr/src
 #Build gsa
-COPY ./gsa /usr/src
+ADD gsa/ /usr/src/
 RUN cd /usr/src/gsa && \
 	mkdir build && \
 	cd build && \
