@@ -94,7 +94,7 @@ COPY redis.conf /etc/redis.conf
 
 #Build gsa
 COPY ./gsa /usr/src
-RUN cd /usr/src/gsc && \
+RUN cd /usr/src/gsa && \
 	mkdir build && \
 	cd build && \
 	cmake .. && \
