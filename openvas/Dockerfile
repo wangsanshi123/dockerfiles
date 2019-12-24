@@ -93,15 +93,13 @@ COPY openvassd.conf /usr/local/etc/openvas/openvassd.conf
 COPY redis.conf /etc/redis.conf
 
 #Build gsa
-RUN cd /usr/src && \
-	git clone -b gsa-8.0 https://github.com/greenbone/gsa.git && \
-	cd gsa && \
+COPY ./gsa /usr/src
+RUN cd /usr/src/gsc && \
 	mkdir build && \
 	cd build && \
 	cmake .. && \
 	make && \
 	make install && \
-	rm -rf /usr/src/gsa
 
 #Build gvmd
 RUN cd /usr/src && \
