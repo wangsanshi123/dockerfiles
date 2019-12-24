@@ -88,8 +88,8 @@ RUN cd /usr/src && \
 	make install && \
 	rm /usr/src/v6.0.0.tar.gz && \
 	rm -rf /usr/src/openvas-6.0.0
-COPY ./openvas-docker/config/openvassd.conf /usr/local/etc/openvas/openvassd.conf
-COPY ./openvas-docker/config/redis.conf /etc/redis.conf
+COPY openvassd.conf /usr/local/etc/openvas/openvassd.conf
+COPY redis.conf /etc/redis.conf
 
 #Build gsa
 RUN cd /usr/src && \
