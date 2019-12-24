@@ -13,4 +13,4 @@ docker run -d --name my_mongo1 -p 27018:27017  my_mongo1 --config  /etc/mongo/mo
 docker run --name debian  -p 2204:22 -dit --privileged  debian /usr/sbin/init
 
 
-docker run --name 12306_1 -dit --privileged  yuantaixing/12306:1.0
+docker run --name 12306_1 -dit  12306_temp:1.0

@@ -11,9 +11,9 @@ RUN apt-get install -y ca-certificates apt-transport-https
 
 #修改成国内的源
 COPY sources.list etc/apt/sources.list
+RUN apt-get update
 
 # 安装常用的软件
-RUN apt-get update
 RUN apt-get install -y locales net-tools openssh-server htop git vim wget gcc make  curl  bzip2 sudo
 
 

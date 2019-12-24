@@ -16,9 +16,10 @@ RUN echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib n
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free' >> /etc/apt/sources.list
+RUN apt-get update
+
 
 # 安装常用的软件
-RUN apt-get update
 RUN apt-get install -y locales net-tools openssh-server
 
 RUN apt-get -y update
