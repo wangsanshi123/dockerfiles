@@ -16,6 +16,9 @@ echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main cont
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free' >> /etc/apt/sources.list
 RUN apt-get update
+# 加速git
+RUN git config --global https.proxy http://127.0.0.1:1080
+RUN git config --global https.proxy https://127.0.0.1:1080
 
 
 #Install Prerequisites
