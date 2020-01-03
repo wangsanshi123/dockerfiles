@@ -3,7 +3,7 @@ services:
   bwapp_1:
     image: raesene/bwapp
     ports:
-      - "8000:80"
+      - "9001:80"
     networks:
       net:
         ipv4_address: 172.18.1.3
