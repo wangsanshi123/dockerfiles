@@ -14,7 +14,7 @@ RUN apt-get update \
 ENV LANG en_US.utf8
 
 #配置ssh服务,应该修改密码
-RUN mkdir /var/run/sshd && echo 'root:111' |chpasswd
+RUN mkdir /var/run/sshd && echo 'root:4833123yuan' |chpasswd
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
     && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
     && mkdir /root/.ssh
